@@ -1,4 +1,7 @@
-<%= javascript_pack_tag "application" %>
+<%= javascript_include_tag "config/const.js" %>
+<%= javascript_include_tag "models/google_map_model.js" %>
+<%= javascript_include_tag "controllers/google_map_controller.js" %>
+<%= javascript_include_tag "views/google_map_view.js" %>
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
@@ -28,4 +31,10 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+
+<div id="display-none">
+  <% @posts.each do |post| %>
+    <div class="map-data" data-lat="35.690" data-lng="139.690" data-info="テスト">test</div>
+  <% end %>
+</div>
 <div id="map"></div>
