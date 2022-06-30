@@ -11,8 +11,8 @@ class GoogleMapController {
         const map_data_elements = document.getElementsByClassName(this.map_data_class_name);
 
         let google_map_model = null;
-        if (map_data_elements[0].dataset.lat != undefined && map_data_elements[0].dataset.lng != undefined && map_data_elements[0].dataset.info != undefined) {
-            let infos = [];
+        if (map_data_elements[0].dataset.lat != undefined && map_data_elements[0].dataset.lng != undefined && map_data_elements[0].dataset.post_id != undefined) {
+            let post_ids = [];
             let positions = [];
             for (let i = 0; i < map_data_elements.length; i++) {
                 positions.push(
@@ -21,8 +21,8 @@ class GoogleMapController {
                         lng: parseFloat(map_data_elements[i].dataset.lng)
                     }
                 );
-                infos.push(
-                    map_data_elements[i].dataset.info
+                post_ids.push(
+                    map_data_elements[i].dataset.post_id
                 );
 
             }
@@ -31,7 +31,7 @@ class GoogleMapController {
                 this.zoom,
                 map_element,
                 positions,
-                infos
+                post_ids
             );
 
         } else if (map_data_elements[0].dataset.lat != undefined && map_data_elements[0].dataset.lng != undefined) {

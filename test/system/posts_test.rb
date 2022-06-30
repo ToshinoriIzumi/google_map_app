@@ -15,6 +15,8 @@ class PostsTest < ApplicationSystemTestCase
     click_on "New Post"
 
     fill_in "Body", with: @post.body
+    fill_in "Lat", with: @post.lat
+    fill_in "Lng", with: @post.lng
     fill_in "Title", with: @post.title
     click_on "Create Post"
 
@@ -27,6 +29,8 @@ class PostsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Body", with: @post.body
+    fill_in "Lat", with: @post.lat
+    fill_in "Lng", with: @post.lng
     fill_in "Title", with: @post.title
     click_on "Update Post"
 

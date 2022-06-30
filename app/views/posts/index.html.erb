@@ -11,6 +11,8 @@
     <tr>
       <th>Title</th>
       <th>Body</th>
+      <th>Lat</th>
+      <th>Lng</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +22,8 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
+        <td><%= post.lat %></td>
+        <td><%= post.lng %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,10 +35,9 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
-
 <div id="display-none">
   <% @posts.each do |post| %>
-    <div class="map-data" data-lat="35.690" data-lng="139.690" data-info="テスト">test</div>
+    <div class="map-data" data-lat="<%= post.lat %>" data-lng="<%= post.lng %>" data-post_id="<%= post.id %>"><%= post.title %></div>
   <% end %>
 </div>
 <div id="map"></div>
